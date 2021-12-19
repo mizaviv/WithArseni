@@ -1,0 +1,11 @@
+{% extends "forms.html" %}
+{% set currentPage = 1 %}
+{% block title %}
+Home page
+{% endblock %}
+{% block header %}
+Home page - {{user.firstName | capitalize}} {{user.lastName | capitalize }}
+{% endblock %}
+{% block main_context %}
+Welcome to {{user.firstName | capitalize}} {{user.lastName | capitalize }}'s home page!!!
+{% endblock %}

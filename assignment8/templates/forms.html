@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- currentPage: 0 - none. 1 - home. 2 - cv. 3 - register. 4 - contact !-->
+
+<!-- common variables -->
+{% set pages = [
+{'id': 1, 'name': "home", 'title': "Home page"},
+{'id': 2, 'name': "cv", 'title': "C.V."},
+{'id': 3, 'name': "register", 'title': "Register"},
+{'id': 4, 'name': "contact", 'title': "Contact Info"}
+]
+%}
+{% set user = {
+'firstName': "AVIV",
+'lastName': "MIZRAHI",
+'email': "MizAviv@post.bgu.ac.il",
+'age': 24,
+'linkedin': "https://www.linkedin.com/in/aviv-mizrahi",
+'facebook': "https://www.facebook.com/avivmizrahii"
+}
+%}
+<html lang="en">
+<head>
+    <title>Register Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}"> <!--לינק לעמוד CSS-->
+    {% if currentPage == 2 %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cvGrid.css') }}"> <!--לינק לעמוד CSS-->
+    {% endif %}
+    {% if currentPage == 3 %}
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    {% endif %}
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<body>
+{% include 'common_header.html' %}
+<h1>{% block header %}
+    {% endblock %}
+</h1>
+{% block main_context %}
+{% endblock %}
+{% block footer %}
+<h8><a href="{{user.linkedin | lower}}">
+    <img src="{{url_for('static', filename='img/linkedin.png')}}" alt="HTML tutorial" style="width:42px;height:42px;">
+</a></h8>
+<h8><a href="{{user.facebook | lower}}"><img src="{{url_for('static', filename='img/facebook.png')}}"
+                                             alt="HTML tutorial" style="width:42px;height:42px;"></a></h8>
+<br>
+{% endblock %}
+</body>
+</html>

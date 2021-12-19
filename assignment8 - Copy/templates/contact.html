@@ -1,0 +1,26 @@
+{% extends "forms.html" %}
+{% set currentPage = 4 %}
+{% block title %}
+Contact us
+{% endblock %}
+{% block header %}
+Please, enter your email info and note to us.
+{% endblock %}
+{% block main_context %}
+<h2 id="H11" class="header">Contact Us<span>&nbsp&nbsp&#x1F4F1</span></h2>
+<form name="form2" action="javascript:alert('contact us!!!')">
+    <lable for="Fname">First name</lable>
+    <input name="Fname" id="Fname1"><br><br>
+    <label for="">Last name</label>
+    <input><br><br>
+    <label for="">Address&nbsp&nbsp&nbsp</label>
+    <input><br><br>
+    <label for="">Notes</label><br>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Send">
+    <br>
+    <br>
+</form>
+{% endblock %}

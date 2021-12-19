@@ -1,0 +1,28 @@
+{% extends "forms.html" %}
+{% set currentPage = 3 %}
+{% block title %}
+Register user
+{% endblock %}
+{% block header %}
+Please, enter user data, and confirm
+{% endblock %}
+{% block main_context %}
+<h1>Sign Up<span>&nbsp&nbsp&#10133</span></h1>
+<form name="form1" action="javascript:alert('register!!!');">
+    <lable for="Fname">First name</lable>
+    <input name="Fname" id="Fname1"><br><br>
+    <label for="">Last name</label>
+    <input><br><br>
+    <label for="email">Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    <input id="email" name="email" type="email"><br><br>
+    <label for="">Password&nbsp</label>
+    <input type="password"><br><br>
+    <label for="">BirthDay&nbsp&nbsp</label>
+    <input type="date"><span>&nbsp&nbsp&#x1F389</span>
+    <br>
+    <br>
+    <input type="submit" value="Register">
+    <br>
+    <br>
+</form>
+{% endblock %}

@@ -1,0 +1,6 @@
+<ul>
+  <li><img src="{{url_for('static', filename='img/profilePic.jpg')}}" class="profile_small"></li>
+    {% for page in pages %}
+      <li><a href="{{url_for(page['name'])}}" class="{{'selected' if page['id']==currentPage}} else ''">{{page['title']}}</a></li>
+    {% endfor %}
+</ul>
