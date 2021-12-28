@@ -1,0 +1,8 @@
+<ul>
+    {% for page in pages %}
+      <li><a href="{{url_for(page['name'])}}" class="{{'selected' if page['id']==currentPage}} else ''">{{page['title']}}</a></li>
+    {% endfor %}
+</ul>
+{% if session['username'] %}
+<p class="greeting">Greeting {{session['username']}}!!!</p>
+{% endif %}

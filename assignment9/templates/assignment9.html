@@ -1,0 +1,61 @@
+{% extends "forms.html" %}
+{% set currentPage = 1 %}
+{% block title %}
+Search user
+{% endblock %}
+{% block logout %}
+{% if session['username'] %}
+<form name="form1" action="/logout" method="post">
+    <input type="submit" name="logout" value="logout">
+</form>
+<br><br>
+{% endif %}
+{% endblock %}
+{% block header %}
+Please, enter user name to search for
+{% endblock %}
+{% block main_context %}
+<form name="form1" action="/search_user" method="get">
+
+    <lable for="username">User Name:</lable>
+    <input name="username" type="text" placeholder="Name">
+    <br><br>
+    <lable for="email">E-Mail:</lable>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <input type="email" name="email" placeholder="Email">
+    <br>
+    <br>
+    <input type="submit" name="submit" value="search">
+    <br>
+    <br>
+</form>
+<br><br>
+<p>----</p>
+<br><br>
+{% if searchValid %}
+{% if username or email %}
+{% for user in users %}
+{% if user['username'] == username or user['email'] == email %}
+<div>User Name:{{user['username']}}</div>
+<div>Email:{{user['email']}}</div>
+<br>
+{% endif %}
+{% endfor %}
+{% else %}
+<table class="center">
+    <tr>
+        <th>User Name</th>
+        <th>EMail</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user['username']}}</td>
+        <td>{{user['email']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+{% endif %} <!-- if username -->
+{% endif %} <!-- if searchValid -->
+{% endblock %}
+

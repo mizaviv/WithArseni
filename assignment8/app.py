@@ -1,5 +1,7 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from flask import request, session
+from interact_with_DB import interact_db
 
 app = Flask(__name__)
 
@@ -28,6 +30,18 @@ def register():
 def contact():
     return render_template('contact.html')
 
+@app.route('/users')
+def users():
+    return render_template('users.html')
+
+@app.route('/insert_user', methods=['POST'])
+def insert_user_func():
+    name = request.form['name']
+    email = request.form['email']
+    password = request.form['password']
+    query = "INSERT INTO USERES (name ,email,password) values )('%s','%s','%s')" % ({name},{email},{password})
+    interact_db(query=query, query_type='commit')
+    return redirect('/users')
 
 if __name__ == '__main__':
     #   Bind to PORT if defined, otherwise default to 5000.

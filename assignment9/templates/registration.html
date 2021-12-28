@@ -1,0 +1,24 @@
+{% extends "forms.html" %}
+{% set currentPage = 2 %}
+{% block title %}
+Register user
+{% endblock %}
+{% block header %}
+Please, enter user data, and confirm
+{% endblock %}
+{% block main_context %}
+<h1>Register<span>&nbsp&nbsp&#10133</span></h1>
+<form name="form1" action="/insert_user" method="post">
+    <lable for="name">Name</lable>
+    <input name="name" type="text" placeholder="Name">
+    <lable for="email">E-Mail</lable>
+    <input type="email" name="email" placeholder="Email">
+    <lable for="password">Password</lable>
+    <input type="password" name="password" placeholder="Password">
+    <br>
+    <br>
+    <input type="submit" name="submit" value="insert">
+    <br>
+    <br>
+</form>
+{% endblock %}
